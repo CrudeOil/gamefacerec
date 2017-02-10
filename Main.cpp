@@ -1,6 +1,5 @@
 #include "iostream"
-#include "EmotionService.h"
-#include "GameCapture.h"
+#include "GameEmoRec.h"
 
 using namespace std;
 using namespace GameEmoRec;
@@ -8,6 +7,8 @@ using namespace GameEmoRec;
 int main(int argc, char* argv[]) {
     cout<<"Starting Game emotion recognition";
 
-    EmotionService* emotionService = new EmotionService();
-    GameCapture* gameCapture = new GameCapture();
+    EmotionService* pEmotionService = new EmotionService();
+    pEmotionService->setX(123);
+    cout<<pEmotionService->toString();
+    GameCapture* pGameCapture = new GameCapture();
 }
