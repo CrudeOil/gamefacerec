@@ -1,6 +1,6 @@
 #include "cstdio"
 
-namespace LaNoirEmoRec {
+namespace GameEmoRec {
     class EmotionService {
         int x;
         public:
