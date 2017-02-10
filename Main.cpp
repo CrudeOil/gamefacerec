@@ -1,12 +1,13 @@
 #include "iostream"
-#include "d3d9.h"
 #include "EmotionService.h"
+#include "GameCapture.h"
 
 using namespace std;
+using namespace GameEmoRec;
 
 int main(int argc, char* argv[]) {
-    cout<<"halp";
-    GameEmoRec::EmotionService* ems = new GameEmoRec::EmotionService();
-    
-    
+    cout<<"Starting Game emotion recognition";
+
+    EmotionService* emotionService = new EmotionService();
+    GameCapture* gameCapture = new GameCapture();
 }
