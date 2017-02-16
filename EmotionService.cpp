@@ -1,22 +1,42 @@
 #include "cstdio"
+#include "queue"
+#include "EmotionService.h"
 
-namespace GameEmoRec {
-    class EmotionService {
-        int x;
-        public:
-            EmotionService() {
-                x = 0;
-            }
+using namespace GameEmoRec;
 
-            void setX(int newx) {
-                this->x = newx;
-            }
+EmotionService::EmotionService() {
+    running = false;
+}
 
-            char* toString() {
-                char* buffer = new char[32];
-                sprintf(buffer, "%d", this->x);
-                return buffer;
-            }
-        
-    };
+void EmotionService::enqueue(short* bitmap) {
+    q.push(bitmap);
+}
+
+short* EmotionService::dequeue() {
+    q.pop();
+}
+
+void worker(EmotionService* pEmotionService) {
+    short* bitmap;
+    while (pEmotionService->isRunning()) {
+        bitmap = pEmotionService->dequeue();
+    }
+}
+
+void EmotionService::start() {
+    this->running = true;
+}
+
+void EmotionService::stop() {
+    this->running = false;
+}
+
+char* EmotionService::toString() {
+    char* buffer = new char[32];
+    sprintf(buffer, "Instance of EmotionService. %d bitmaps in queue\n", 0.0);
+    return buffer;
+}
+
+bool EmotionService::isRunning() {
+    return this->running;
 }

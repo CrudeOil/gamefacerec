@@ -1,14 +1,15 @@
 #include "iostream"
-#include "GameEmoRec.h"
+#include "EmotionService.h"
+#include "GameCapture.h"
 
 using namespace std;
 using namespace GameEmoRec;
 
 int main(int argc, char* argv[]) {
-    cout<<"Starting Game emotion recognition";
+    cout<<"Starting Game emotion recognition"<<endl;
 
     EmotionService* pEmotionService = new EmotionService();
-    pEmotionService->setX(123);
+    pEmotionService->start();
     cout<<pEmotionService->toString();
-    GameCapture* pGameCapture = new GameCapture();
+    GameCapture* pGameCapture = new GameCapture("chrome.exe");
 }
