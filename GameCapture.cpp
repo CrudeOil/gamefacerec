@@ -1,4 +1,5 @@
 #include "cstdio"
+#include "cstring"
 #include "GameCapture.h"
 
 using namespace std;
@@ -17,7 +18,8 @@ GameCapture::getProcess(const char* execName) {
     if (EnumProcesses(processIds, MAX_PROCESS_ID, &rn)) {
         for(int i = 0; i < MAX_PROCESS_ID; i++) {
             pName = this->getProcessName(processIds[i]);
-            if (pName == execName) {
+            
+            if (strcmp(pName, execName) == 0) {
                 printf("Found process %s with pid %d\n", pName, processIds[i]);
                 delete[] pName;
             }
@@ -41,7 +43,7 @@ char* GameCapture::getProcessName(long unsigned int processId) {
 
         return processName;
     }else{
-        char* ch = new char[10] /* 11 = len of Hello Heap + 1 char for \0*/;
+        char* ch = new char[10];
         strcpy(ch, "<UNKNOWN>");
         return ch;
     }
