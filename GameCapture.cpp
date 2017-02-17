@@ -10,7 +10,7 @@ GameCapture::GameCapture(const char* execName) {
     this->getProcess(execName);
 }
 
-GameCapture::getProcess(const char* execName) {
+int GameCapture::getProcess(const char* execName) {
     long unsigned int processIds[MAX_PROCESS_ID];
     long unsigned int rn;
     char *pName;
@@ -47,7 +47,7 @@ char* GameCapture::getProcessName(long unsigned int processId) {
         return processName;
     }else{
         char* ch = new char[10];
-        strcpy(ch, "<UNKNOWN>");
+        strcpy_s(ch, 10, "<UNKNOWN>");
         return ch;
     }
 }
