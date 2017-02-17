@@ -13,4 +13,5 @@ int main(int argc, char* argv[]) {
     pEmotionService->start();
     delete pGameCapture;
     delete pEmotionService;
+	system("pause");
 }
