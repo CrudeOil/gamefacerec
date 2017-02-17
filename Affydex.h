@@ -2,6 +2,7 @@
 #include "typedefs.h"
 #include "AffdexException.h"
 #include "Detector.h"
+#include "PhotoDetector.h"
 #include "Face.h"
 #include "FaceListener.h"
 #include "ProcessStatusListener.h"
@@ -11,6 +12,6 @@
 namespace GameEmoRec {
     class Affydex : public EmotionService {
         private:
-            PhotoDetector detector;
+			affdex::PhotoDetector detector;
     };
 }
