@@ -13,14 +13,16 @@ void EmotionService::enqueue(short* bitmap) {
 }
 
 short* EmotionService::dequeue() {
+    short* r = q.front();
     q.pop();
+    return r;
 }
 
 void worker(EmotionService* pEmotionService) {
-    short* bitmap;
-    while (pEmotionService->isRunning()) {
-        bitmap = pEmotionService->dequeue();
-    }
+    // short* bitmap;
+    // while (pEmotionService->isRunning()) {
+    //     bitmap = pEmotionService->dequeue();
+    // }
 }
 
 void EmotionService::start() {
@@ -33,7 +35,7 @@ void EmotionService::stop() {
 
 char* EmotionService::toString() {
     char* buffer = new char[32];
-    sprintf(buffer, "Instance of EmotionService. %d bitmaps in queue\n", 0.0);
+    sprintf(buffer, "Instance of EmotionService. %f bitmaps in queue\n", 0.0);
     return buffer;
 }
 
