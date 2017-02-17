@@ -1,2 +1,12 @@
+.gitattributes
+
 *.exe
 *.dll
+
+*.obj
+*.ilk
+*.*log
+*.pdb
+*.idb
+*.vc*
+*.sln
