@@ -28,11 +28,11 @@ void EmotionService::setEmotionServiceProvider(EmotionServiceProvider *emotionSe
 }
 
 void worker(EmotionService* pEmotionService) {
-     short* bitmap;
+     short* bitmap = 0x0;
      while (pEmotionService->isRunning()) {
          bitmap = pEmotionService->dequeue();
      }
-	 if (NULL != bitmap) delete bitmap;
+	 delete bitmap;
 }
 
 void EmotionService::start() {
