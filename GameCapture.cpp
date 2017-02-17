@@ -20,11 +20,13 @@ GameCapture::getProcess(const char* execName) {
             pName = this->getProcessName(processIds[i]);
             
             if (strcmp(pName, execName) == 0) {
-                printf("Found process %s with pid %d\n", pName, processIds[i]);
+                printf("Found process %s with pid %lu\n", pName, processIds[i]);
                 delete[] pName;
+                return processIds[i];
             }
         }
     }
+    return -1;
 }
 
 char* GameCapture::getProcessName(long unsigned int processId) {
@@ -36,6 +38,7 @@ char* GameCapture::getProcessName(long unsigned int processId) {
     if (NULL != hProcess) {
         HMODULE hMod;
         DWORD cbNeeded;
+        
         if (EnumProcessModules(hProcess, &hMod, sizeof(hMod), &cbNeeded)) {
             GetModuleBaseName(hProcess, hMod, processName, MAX_PROCESS_NAME_LEN);
         }
