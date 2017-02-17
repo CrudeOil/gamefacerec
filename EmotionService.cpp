@@ -18,11 +18,21 @@ short* EmotionService::dequeue() {
     return r;
 }
 
+void EmotionService::onResults(double *results)
+{
+	
+}
+
+void EmotionService::setEmotionServiceProvider(EmotionServiceProvider *emotionServicePovider) {
+	this->emotionServicePovider = emotionServicePovider;
+}
+
 void worker(EmotionService* pEmotionService) {
-    // short* bitmap;
-    // while (pEmotionService->isRunning()) {
-    //     bitmap = pEmotionService->dequeue();
-    // }
+     short* bitmap;
+     while (pEmotionService->isRunning()) {
+         bitmap = pEmotionService->dequeue();
+     }
+	 if (NULL != bitmap) delete bitmap;
 }
 
 void EmotionService::start() {
@@ -35,7 +45,7 @@ void EmotionService::stop() {
 
 char* EmotionService::toString() {
     char* buffer = new char[32];
-    sprintf(buffer, "Instance of EmotionService. %f bitmaps in queue\n", 0.0);
+    sprintf_s(buffer, 32, "Instance of EmotionService. %f bitmaps in queue\n", 0.0);
     return buffer;
 }
 
