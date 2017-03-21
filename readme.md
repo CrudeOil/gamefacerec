@@ -7,6 +7,9 @@ Why not?
 
 ### For building: 
 - Dx9 sdk
-- If you're using the affectiva stuff I'm using, you will need:
-    - Windows visual c++
-    - Affectiva SDK (make sure not to have a yearly revenue over $1,000,000)
+- Windows visual c++
+- Affectiva SDK (make sure not to have a yearly revenue over $1,000,000)
+
+1. Edit build.bat to point to your VC directory and affydex SDK
+2. CD to project dir
+3. run build.bat
