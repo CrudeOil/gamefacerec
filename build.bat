@@ -7,8 +7,8 @@ call %vcdir%\vcvarsall.bat x64
 
 cd build
 
-set compileflags=/W4 /EHsc /I ../include /I %affydir%\include
-set linkerflags=/OUT:gamefacerec.exe
+set compileflags=/Od /W4 /EHsc /I ../include /I %affydir%\include
+set linkerflags=/Fe:gamefacerec.exe
 
 set files=../src/Affydex.cpp ../src/EmotionService.cpp ../src/GameCapture.cpp ../src/Main.cpp
 
