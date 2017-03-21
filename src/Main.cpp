@@ -6,9 +6,15 @@ using namespace std;
 using namespace GameEmoRec;
 
 int main(int argc, char* argv[]) {
-    cout<<"Starting Game emotion recognition"<<endl;
+    char* procname = new char[64];
 
-    GameCapture* pGameCapture = new GameCapture("chrome.exe");
+    cout<<"Starting Game emotion recognition"<<endl;
+    cout<<"Enter process name:"<<endl;
+    cout<<"> ";
+    cin>>procname;
+    cout<<endl;
+
+    GameCapture* pGameCapture = new GameCapture(procname);
     EmotionService* pEmotionService = new EmotionService();
     pEmotionService->start();
     delete pGameCapture;
