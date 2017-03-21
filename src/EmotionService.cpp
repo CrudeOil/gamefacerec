@@ -18,10 +18,10 @@ short* EmotionService::dequeue() {
     return r;
 }
 
-void EmotionService::onResults(double *results)
-{
+// void EmotionService::onResults(double *results)
+// {
 	
-}
+// }
 
 void EmotionService::setEmotionServiceProvider(EmotionServiceProvider *emotionServicePovider) {
 	this->emotionServicePovider = emotionServicePovider;
