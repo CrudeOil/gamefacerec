@@ -8,10 +8,12 @@
 
 namespace GameEmoRec {
     class GameCapture {
-        int pid;
         public:
+            // TODO: make private
+            long unsigned int pid;
+            
             GameCapture(const char*);
-            int getProcess(const char*);
+            long unsigned int getProcessID(const char*);
             char* getProcessName(long unsigned int);
     };
 }

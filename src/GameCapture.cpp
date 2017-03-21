@@ -7,10 +7,13 @@ using namespace GameEmoRec;
 
 GameCapture::GameCapture(const char* execName) {
     printf("Attempting to find window %s\n", execName);
-    this->getProcess(execName);
+    pid = this->getProcessID(execName);
+    if (pid == 0L) {
+        printf("Process not found: %s\n\n", execName);
+    }
 }
 
-int GameCapture::getProcess(const char* execName) {
+long unsigned int GameCapture::getProcessID(const char* execName) {
     long unsigned int processIds[MAX_PROCESS_ID];
     long unsigned int rn;
     char *pName;
@@ -26,7 +29,7 @@ int GameCapture::getProcess(const char* execName) {
             }
         }
     }
-    return -1;
+    return 0L;
 }
 
 char* GameCapture::getProcessName(long unsigned int processId) {
