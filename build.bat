@@ -6,6 +6,9 @@ set dx9dir="C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)"
 
 call %vcdir%\vcvarsall.bat x64
 
+if exist build goto build
+    mkdir build
+:build
 cd build
 
 set compileflags=/Zi /W4 /EHsc /I ../include /I %affydir%\include /I %dx9dir%\Include
